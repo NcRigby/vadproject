@@ -36,9 +36,10 @@ class ManufacturerController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Manufacturer $manufacturer)
+    public function show($id)
     {
-        //
+        $manufacturers = Manufacturer::find($id);
+        return $manufacturers;
     }
 
     /**

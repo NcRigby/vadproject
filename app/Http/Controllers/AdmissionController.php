@@ -35,9 +35,10 @@ class AdmissionController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Admission $admission)
+    public function show($id)
     {
-        //
+        $admissions = Admission::find($id);
+        return $admissions;
     }
 
     /**

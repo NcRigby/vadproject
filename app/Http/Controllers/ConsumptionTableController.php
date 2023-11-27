@@ -36,9 +36,10 @@ class ConsumptionTableController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(ConsumptionTable $consumptionTable)
+    public function show($id)
     {
-        //
+        $consumptionTables = ConsumptionTable::find($id);
+        return $consumptionTables;
     }
 
     /**

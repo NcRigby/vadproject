@@ -36,9 +36,10 @@ class ProductTypeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(ProductType $productType)
+    public function show($id)
     {
-        //
+        $productTypes = ProductType::find($id);
+        return $productTypes;
     }
 
     /**

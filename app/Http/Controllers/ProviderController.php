@@ -35,9 +35,10 @@ class ProviderController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Provider $provider)
+    public function show($id)
     {
-        //
+        $providers = Provider::find($id);
+        return $providers;
     }
 
     /**

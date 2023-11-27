@@ -17,6 +17,8 @@ class SellerController extends Controller
         return $sellers;
     }
 
+    
+
     /**
      * Show the form for creating a new resource.
      */
@@ -36,9 +38,10 @@ class SellerController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Seller $seller)
+    public function show($id)
     {
-        //
+        $sellers = Seller::find($id);
+        return $sellers;
     }
 
     /**
