@@ -32,7 +32,11 @@ class SellerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $created_seller = new Seller;
+        $created_seller -> name = $request -> name; 
+        $created_seller -> save();
+        return $created_seller;
     }
 
     /**
@@ -57,7 +61,13 @@ class SellerController extends Controller
      */
     public function update(Request $request, Seller $seller)
     {
-        //
+        $seller = Seller::find($request->id);
+        
+        $seller ->name = $request -> name;
+        
+        $seller -> save();
+
+        return true;
     }
 
     /**
@@ -65,6 +75,6 @@ class SellerController extends Controller
      */
     public function destroy(Seller $seller)
     {
-        //
+        
     }
 }

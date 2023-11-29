@@ -30,7 +30,11 @@ class ProductTypeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $created_product_type = new ProductType;
+        $created_product_type -> name = $request -> name; 
+        $created_product_type -> save();
+        return $created_product_type;
     }
 
     /**
@@ -55,7 +59,13 @@ class ProductTypeController extends Controller
      */
     public function update(Request $request, ProductType $productType)
     {
-        //
+        $productType = ProductType::find($request->id);
+        
+        $productType ->name = $request -> name;
+        
+        $productType -> save();
+
+        return true;
     }
 
     /**

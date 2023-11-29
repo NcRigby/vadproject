@@ -29,7 +29,10 @@ class ProviderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $created_provider = new Provider;
+        $created_provider -> name = $request -> name; 
+        $created_provider -> save();
+        return $created_provider;
     }
 
     /**
@@ -54,7 +57,13 @@ class ProviderController extends Controller
      */
     public function update(Request $request, Provider $provider)
     {
-        //
+        $provider = Provider::find($request->id);
+        
+        $provider ->name = $request -> name;
+        
+        $provider -> save();
+
+        return true;
     }
 
     /**

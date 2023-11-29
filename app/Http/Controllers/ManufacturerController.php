@@ -30,7 +30,11 @@ class ManufacturerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $created_manufacturer = new Manufacturer;
+        $created_manufacturer -> name = $request -> name;
+        $created_manufacturer -> save();
+        return $created_manufacturer;
     }
 
     /**
@@ -55,7 +59,13 @@ class ManufacturerController extends Controller
      */
     public function update(Request $request, Manufacturer $manufacturer)
     {
-        //
+        $manufacturer = Manufacturer::find($request->id);
+        
+        $manufacturer ->name = $request -> name;
+        
+        $manufacturer -> save();
+
+        return true;
     }
 
     /**

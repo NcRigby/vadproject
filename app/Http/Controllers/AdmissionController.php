@@ -29,7 +29,14 @@ class AdmissionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $created_admission = new Admission;
+        $created_admission -> date = $request -> date;
+        $created_admission -> provider_id = $request -> provider_id;
+        $created_admission -> total_document_amount = $request -> total_document_amount; 
+        $created_admission -> admission_table_id = $request -> admission_table_id;
+        $created_admission -> save();
+        return $created_admission;
     }
 
     /**
@@ -54,7 +61,16 @@ class AdmissionController extends Controller
      */
     public function update(Request $request, Admission $admission)
     {
-        //
+        $admission = Admission::find($request->id);
+        
+        $admission -> date = $request -> date;
+        $admission -> provider_id = $request -> provider_id;
+        $admission -> total_document_amount = $request -> total_document_amount; 
+        $admission -> admission_table_id = $request -> admission_table_id;
+        
+        $admission -> save();
+
+        return true;
     }
 
     /**

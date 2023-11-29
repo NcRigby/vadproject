@@ -30,7 +30,14 @@ class ConsumptionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $created_consumption = new Consumption;
+        $created_consumption -> date = $request -> date;
+        $created_consumption -> seller_id = $request -> seller_id;
+        $created_consumption -> total_document_amount = $request -> total_document_amount; 
+        $created_consumption -> consumption_table_id = $request -> consumption_table_id;
+        $created_consumption -> save();
+        return $created_consumption;
     }
 
     /**
@@ -55,7 +62,16 @@ class ConsumptionController extends Controller
      */
     public function update(Request $request, Consumption $consumption)
     {
-        //
+        $consumption = Consumption::find($request->id);
+        
+        $consumption -> date = $request -> date;
+        $consumption -> seller_id = $request -> seller_id;
+        $consumption -> total_document_amount = $request -> total_document_amount; 
+        $consumption -> consumption_table_id = $request -> consumption_table_id;
+        
+        $consumption -> save();
+
+        return true;
     }
 
     /**

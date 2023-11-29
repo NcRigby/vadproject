@@ -30,7 +30,15 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $created_product = new Product;
+        $created_product -> name = $request -> name;
+        $created_product -> type_products_id = $request -> type_products_id;
+        $created_product -> price = $request -> price; 
+        $created_product -> best_before_date = $request -> best_before_date;
+        $created_product -> manufacturer_id = $request -> manufacturer_id;
+        $created_product -> save();
+        return $created_product;
     }
 
     /**
@@ -55,7 +63,16 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        $product = Product::find($request->id);
+        
+        $product ->name = $request -> name;
+        $product ->type_products_id = $request -> type_products_id;
+        $product ->price = $request -> price;
+        $product ->best_before_date = $request -> best_before_date;
+        $product ->manufacturer_id = $request -> manufacturer_id;
+        $product -> save();
+
+        return true;
     }
 
     /**

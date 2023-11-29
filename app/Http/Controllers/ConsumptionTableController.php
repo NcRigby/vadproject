@@ -30,7 +30,15 @@ class ConsumptionTableController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $created_consumption_table = new ConsumptionTable;
+        $created_consumption_table -> product_id = $request -> product_id;
+        $created_consumption_table -> amount = $request -> amount;
+        $created_consumption_table -> price = $request -> price; 
+        $created_consumption_table -> sum = $request -> sum;
+        $created_consumption_table -> warranty_cost = $request -> warranty_cost;
+        $created_consumption_table -> save();
+        return $created_consumption_table;
     }
 
     /**
@@ -55,7 +63,17 @@ class ConsumptionTableController extends Controller
      */
     public function update(Request $request, ConsumptionTable $consumptionTable)
     {
-        //
+        $consumptionTable = ConsumptionTable::find($request->id);
+        
+        $consumptionTable -> product_id = $request -> product_id;
+        $consumptionTable -> amount = $request -> amount;
+        $consumptionTable -> price = $request -> price; 
+        $consumptionTable -> sum = $request -> sum;
+        $consumptionTable -> warranty_cost = $request -> warranty_cost;
+        
+        $consumptionTable -> save();
+
+        return true;
     }
 
     /**

@@ -30,7 +30,14 @@ class AdmissionTableController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $created_admission_table = new AdmissionTable;
+        $created_admission_table -> product_id = $request -> product_id;
+        $created_admission_table -> amount = $request -> amount;
+        $created_admission_table -> price = $request -> price; 
+        $created_admission_table -> sum = $request -> sum;
+        $created_admission_table -> save();
+        return $created_admission_table;
     }
 
     /**
@@ -55,7 +62,16 @@ class AdmissionTableController extends Controller
      */
     public function update(Request $request, AdmissionTable $admissionTable)
     {
-        //
+        $admissionTable = AdmissionTable::find($request->id);
+        
+        $admissionTable -> product_id = $request -> product_id;
+        $admissionTable -> amount = $request -> amount;
+        $admissionTable -> price = $request -> price; 
+        $admissionTable -> sum = $request -> sum;
+        
+        $admissionTable -> save();
+
+        return true;
     }
 
     /**
