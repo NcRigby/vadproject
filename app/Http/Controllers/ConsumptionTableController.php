@@ -79,8 +79,9 @@ class ConsumptionTableController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(ConsumptionTable $consumptionTable)
+    public function destroy($id)
     {
-        //
+        ConsumptionTable::destroy($id);
+        return true;
     }
 }

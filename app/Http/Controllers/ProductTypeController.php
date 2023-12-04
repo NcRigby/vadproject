@@ -71,8 +71,9 @@ class ProductTypeController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(ProductType $productType)
+    public function destroy($id)
     {
-        //
+        ProductType::destroy($id);
+        return true;
     }
 }

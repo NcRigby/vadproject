@@ -12,9 +12,9 @@ class Consumption extends Model
 
     
     public function seller() {
-        return $this->belongsTo(seller::class,'seller_id','id');
+        return $this->belongsTo(Seller::class,'seller_id','id');
     }
     public function consumption_table() {
-        return $this->belongsTo(consumption_table::class,'consumption_table_id','id');
+        return $this->belongsTo(Consumption_table::class,'consumption_table_id','id');
     }
 }

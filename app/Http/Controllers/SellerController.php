@@ -73,8 +73,9 @@ class SellerController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Seller $seller)
+    public function destroy($id)
     {
-        
+        Seller::destroy($id);
+        return true;
     }
 }

@@ -11,8 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('consumptions', function (Blueprint $table) {
-            $table->id();
+        Schema::table('consumptions', function (Blueprint $table) {
             $table->timestamps();
         });
     }

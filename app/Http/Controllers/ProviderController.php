@@ -69,8 +69,9 @@ class ProviderController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Provider $provider)
+    public function destroy($id)
     {
-        //
+        Provider::destroy($id);
+        return true;
     }
 }

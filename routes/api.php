@@ -23,42 +23,96 @@ use App\Http\Controllers\AdmissionController;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
-Route::get('/Seller',[SellerController::class,'index']);
-Route::get('/Seller/{id}',[SellerController::class,'show']);
-Route::post('/Seller',[SellerController::class,'store']);
+Route::prefix('Seller')->group(function(){
+    
+    Route::get('/',[SellerController::class,'index']);
+    Route::get('/{id}',[SellerController::class,'show']);
+    Route::post('/',[SellerController::class,'store']);
+    Route::delete('/{id}', [SellerController::class,'destroy']);
+    Route::put('/',[SellerController::class,'update']);
+    
+});
 
+Route::prefix('Provider')->group(function(){
+    
+    Route::get('/',[ProviderController::class,'index']);
+    Route::get('/{id}',[ProviderController::class,'show']);
+    Route::post('/',[ProviderController::class,'store']);
+    Route::delete('/{id}', [ProviderController::class,'destroy']);
+    Route::put('/',[ProviderController::class,'update']);
+    
+});
 
-Route::get('/Provider',[ProviderController::class,'index']);
-Route::get('/Provider/{id}',[ProviderController::class,'show']);
-Route::post('/Provider',[ProviderController::class,'store']);
+Route::prefix('ProductType')->group(function(){
+    
+    Route::get('/',[ProductTypeController::class,'index']);
+    Route::get('/{id}',[ProductTypeController::class,'show']);
+    Route::post('/',[ProductTypeController::class,'store']);
+    Route::delete('/{id}', [ProductTypeController::class,'destroy']);
+    Route::put('/',[ProductTypeController::class,'update']);
+    
+});
 
-Route::get('/ProductType',[ProductTypeController::class,'index']);
-Route::get('/ProductType/{id}',[ProductTypeController::class,'show']);
-Route::post('/ProductType',[ProductTypeController::class,'store']);
+Route::prefix('Product')->group(function(){
+    
+    Route::get('/',[ProductController::class,'index']);
+    Route::get('/{id}',[ProductController::class,'show']);
+    Route::post('/',[ProductController::class,'store']);
+    Route::delete('/{id}', [ProductController::class,'destroy']);
+    Route::put('/',[ProductController::class,'update']);
+    
+});
 
-Route::get('/Product',[ProductController::class,'index']);
-Route::get('/Product/{id}',[ProductController::class,'show']);
-Route::post('/Product',[ProductController::class,'store']);
+Route::prefix('Manufacturer')->group(function(){
+    
+    Route::get('/',[ManufacturerController::class,'index']);
+    Route::get('/{id}',[ManufacturerController::class,'show']);
+    Route::post('/',[ManufacturerController::class,'store']);
+    Route::delete('/{id}', [ManufacturerController::class,'destroy']);
+    Route::put('/',[ManufacturerController::class,'update']);
+    
+});
 
-Route::get('/Manufacturer',[ManufacturerController::class,'index']);
-Route::get('/Manufacturer/{id}',[ManufacturerController::class,'show']);
-Route::post('/Manufacturer',[Manufacturer::class,'store']);
+Route::prefix('ConsumptionTable')->group(function(){
+    
+    Route::get('/',[ConsumptionTableController::class,'index']);
+    Route::get('/{id}',[ConsumptionTableController::class,'show']);
+    Route::post('/',[ConsumptionTableController::class,'store']);
+    Route::delete('/{id}', [ConsumptionTableController::class,'destroy']);
+    Route::put('/',[ConsumptionTableController::class,'update']);
+    
+});
 
-Route::get('/ConsumptionTable',[ConsumptionTableController::class,'index']);
-Route::get('/ConsumptionTable/{id}',[ConsumptionTableController::class,'show']);
-Route::post('/ConsumptionTable',[ConsumptionTableController::class,'store']);
+Route::prefix('Consumption')->group(function(){
+    
+    Route::get('/',[ConsumptionController::class,'index']);
+    Route::get('/{id}',[ConsumptionController::class,'show']);
+    Route::post('/',[ConsumptionController::class,'store']);
+    Route::delete('/{id}', [ConsumptionController::class,'destroy']);
+    Route::put('/',[ConsumptionController::class,'update']);
+    
+});
 
-Route::get('/Consumption',[ConsumptionController::class,'index']);
-Route::get('/Consumption/{id}',[ConsumptionController::class,'show']);
-Route::post('/Consumption',[ConsumptionController::class,'store']);
+Route::prefix('AdmissionTable')->group(function(){
+    
+    Route::get('/',[AdmissionTableController::class,'index']);
+    Route::get('/{id}',[AdmissionTableController::class,'show']);
+    Route::post('/',[AdmissionTableController::class,'store']);
+    Route::delete('/{id}', [AdmissionTableController::class,'destroy']);
+    Route::put('/',[AdmissionTableController::class,'update']);
+    
+});
 
-Route::get('/AdmissionTable',[AdmissionTableController::class,'index']);
-Route::get('/AdmissionTable/{id}',[AdmissionTableController::class,'show']);
-Route::post('/AdmissionTable',[AdmissionTableController::class,'store']);
+Route::prefix('Admission')->group(function(){
+    
+    Route::get('/',[AdmissionController::class,'index']);
+    Route::get('/{id}',[AdmissionController::class,'show']);
+    Route::post('/',[AdmissionController::class,'store']);
+    Route::delete('/{id}', [AdmissionController::class,'destroy']);
+    Route::put('/',[AdmissionController::class,'update']);
+    
+});
 
-Route::get('/Admission',[AdmissionController::class,'index']);
-Route::get('/Admission/{id}',[AdmissionController::class,'show']);
-Route::post('/Admission',[AdmissionController::class,'store']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

@@ -76,8 +76,9 @@ class AdmissionController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Admission $admission)
+    public function destroy($id)
     {
-        //
+        Admission::destroy($id);
+        return true;
     }
 }

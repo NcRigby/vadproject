@@ -11,10 +11,10 @@ class Admission extends Model
     protected $fillable = ['date','provider_id','total_document_amount','admission_table_id'];
 
     public function provider() {
-        return $this->belongsTo(provider::class,'provider_id','id');
+        return $this->belongsTo(Provider::class,'provider_id','id');
     }
 
     public function admission_table() {
-        return $this->belongsTo(admission_table::class,'admission_table_id','id');
+        return $this->belongsTo(Admission_table::class,'admission_table_id','id');
     }
 }

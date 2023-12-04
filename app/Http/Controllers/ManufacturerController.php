@@ -71,8 +71,9 @@ class ManufacturerController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Manufacturer $manufacturer)
+    public function destroy($id)
     {
-        //
+        Manufacturer::destroy($id);
+        return true;
     }
 }

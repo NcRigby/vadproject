@@ -11,6 +11,6 @@ class AdmissionTable extends Model
     protected $fillable = ['product_id','amount','price','sum'];
     
     public function product() {
-        return $this->belongsTo(product::class,'product_id','id');
+        return $this->belongsTo(Product::class,'product_id','id');
     }
 }
